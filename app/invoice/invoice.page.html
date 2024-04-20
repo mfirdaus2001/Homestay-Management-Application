@@ -1,0 +1,52 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>invoice</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button menu="main-menu"></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <form (ngSubmit)="createPdf()" [formGroup] = "myForm">
+    <ion-item>
+      <ion-label position="stacked" style="font-size: larger; font-weight: bold;">Invoice Number</ion-label>
+      <ion-input [(ngModel)]="invId" formControlName="id" placeholder="Enter invoice number"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked" style="font-size: larger; font-weight: bold;">Name</ion-label>
+      <ion-input [(ngModel)]="invName" formControlName="name" placeholder=" Enter customer Name"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label style="font-size: larger; font-weight: bold;">Date</ion-label>
+      <ion-datetime [(ngModel)]="invDate" formControlName="date" displayFormat="YYYY-MM-DD" presentation="date"></ion-datetime>
+    </ion-item>
+    
+    <ion-item>
+      <ion-label position="stacked" style="font-size: larger; font-weight: bold;">Contact Number</ion-label>
+      <ion-textarea [(ngModel)]="invContact" formControlName="contact" placeholder="Enter phone number"></ion-textarea>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked" style="font-size: larger; font-weight: bold;">Night</ion-label>
+      <ion-textarea [(ngModel)]="invNight" formControlName="night" placeholder="Enter number of night"></ion-textarea>
+    </ion-item>
+    <ion-item>
+      <ion-label style="font-size: larger; font-weight: bold;">Room</ion-label>
+      <ion-select [(ngModel)]="invRoom" formControlName="room">
+        <ion-select-option value="Bilik 1">Bilik 1</ion-select-option>
+        <ion-select-option value="Bilik 2">Bilik 2</ion-select-option>
+        <ion-select-option value="Bilik 3">Bilik 3</ion-select-option>
+        <ion-select-option value="Bilik 4">Bilik 4</ion-select-option>
+        <ion-select-option value="Bilik 5">Bilik 5</ion-select-option>
+        <ion-select-option value="Bilik 6">Bilik 6</ion-select-option>
+        <ion-select-option value="Bilik 7">Bilik 7</ion-select-option>
+      </ion-select>
+    </ion-item>
+   
+    <ion-button expand="full" type="submit" (click)="createToast('top')">Create PDF</ion-button>
+
+  </form>
+
+  <img [src]="photoPreview" *ngIf="photoPreview">
+  <ion-button expand="full" (click)="downloadToast('top')" (click)="downloadPdf()" color="secondary" >Save PDF</ion-button>
+</ion-content>

@@ -1,0 +1,52 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Add New Reservation</ion-title>
+    <ion-icon name="close" slot="end" size="large" class="ion-padding" (click)="dismiss()"></ion-icon>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+
+  <ion-card>
+    <ion-item>
+      <ion-textarea [(ngModel)]="reserveName" placeholder="Customer Name"></ion-textarea>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Room</ion-label>
+      <ion-select [(ngModel)]="reserveRoom">
+        <ion-select-option value="Bilik 1">Room 1</ion-select-option>
+        <ion-select-option value="Bilik 2">Room 2</ion-select-option>
+        <ion-select-option value="Bilik 3">Room 3</ion-select-option>
+        <ion-select-option value="Bilik 4">Room 4</ion-select-option>
+        <ion-select-option value="Bilik 5">Room 5</ion-select-option>
+        <ion-select-option value="Bilik 6">Room 6</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-icon name="calender-outline" slot="start"></ion-icon>
+      <ion-label>Check In</ion-label>
+      <ion-datetime [(ngModel)]="reserveInDate" displayFormat="D MMM YYYY H:mm"></ion-datetime>
+    </ion-item>
+
+    <ion-item>
+      <ion-icon name="calender-outline" slot="start"></ion-icon>
+      <ion-label>Check Out</ion-label>
+      <ion-datetime [(ngModel)]="reserveOutDate" displayFormat="D MMM YYYY H:mm"></ion-datetime>
+    </ion-item>
+
+
+
+    <ion-button class="ion-margin" expand="block" (click)="AddReserve()">Add Task</ion-button>
+
+  </ion-card>
+
+
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">addnewreserve</ion-title>
+    </ion-toolbar>
+  </ion-header>
+</ion-content>
